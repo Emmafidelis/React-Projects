@@ -1,12 +1,17 @@
-import Alert from "./components/Alert";
+import Button from "./components/Button";
 import "./App.css";
+import Alert from "./components/Alert";
+import { useState } from "react";
 
 function App() {
+  const [visible, setVisible] = useState(false);
+
   return (
     <>
-      <Alert>
-        A simple primary alert—check it out! <span></span>
-      </Alert>
+      {visible && <Alert onClose={() => setVisible(false)}>My Alert</Alert>}
+      <Button color="primary" onClick={() => setVisible(true)}>
+        My Button
+      </Button>
     </>
   );
 }
